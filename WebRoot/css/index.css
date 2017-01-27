@@ -1,0 +1,83 @@
+body {
+	margin: 0;
+	left: 0;
+	
+}
+
+.my_nav {
+	border: 1px red solid;
+}
+
+.content {
+	background-color: #4EEE94;
+}
+
+.carousel-inner {
+	margin: 0;
+}
+
+.carousel-indicators {
+	
+}
+
+.carousel-inner img {
+	height: 200px;
+	width: 100%;
+}
+
+.carousel-caption {
+	color: white;
+	text-align: center;
+}
+
+.introduction {
+	
+}
+
+.introduction_box {
+	margin-top:10px;
+	text-align: center;
+}
+
+.intoduction_box img {
+	width: 160px;
+	height: 160px;
+}
+
+.intoduction_box a {
+	color: white;
+}
+
+.first {
+	margin-left: 10px;
+	float: left;
+	text-align: center;
+}
+
+.second {
+	float: left;
+	text-align: center;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.third {
+	margin-left: 10px;
+	text-align: center;
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+.my_bottom {
+	background-color: gray;
+	position: fixed;
+	bottom: 0px;
+	text-align: center;
+	width: 100%;
+	font-size: 18px;
+	padding: 2px;
+	color: white;
+}

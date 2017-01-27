@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>Touristsystem</display-name>
+
+	<!-- 配置struts2 -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+		<!-- <init-param> <param-name>config</param-name> tomcat的默认初始化路径是项目的src目录，加载struts.xml时并不是加载项目中存放配置文件的绝对路径(WEB-INF/wnl/config/struts) 
+			而是src目录的也就是classes目录下,所以就写相对路径 <param-value>struts-default.xml,struts-plugin.xml,../wnl/config/struts/struts.xml</param-value> 
+			</init-param> -->
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- Struts2整合Spring 为什么整合Spring? 1 通过Spring的IOC为Action注入业务类 2 通过Spring来管理Action 
+		3 Spring容器通过Web容器启动(配置监听器ContextLoaderListener即可完成) -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name><!-- 固定的 -->
+		<param-value>/WEB-INF/classes/wnl/config/spring/applicationContext.xml</param-value>
+	</context-param>
+	<!-- 配置监听器启动Spring容器 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!--=============解决session只读模式============ -->
+	<filter>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
+		<init-param>
+			<param-name>flushMode</param-name>
+			<param-value>AUTO</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

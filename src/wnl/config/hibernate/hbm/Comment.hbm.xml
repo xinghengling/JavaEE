@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="comment" name="wnl.domain.Comment">
+    <id name="cid">
+      <generator class="uuid"/>
+    </id>
+    <property name="content"/>
+    <property name="username"/>
+    <property name="date" type="java.util.Date"/>
+  <!--   <many-to-one name="attraction" column="aid">
+    </many-to-one> -->
+  </class>
+</hibernate-mapping>

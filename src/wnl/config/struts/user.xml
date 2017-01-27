@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="user" extends="struts-default" namespace="/">
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="users">/index.jsp</result>
+			<result name="nomal_admin">/WEB-INF/admin/Admin.jsp</result>
+			<result name="non_user">/views/non_user.jsp</result>
+			<result name="error">/views/user/error.jsp</result>
+			<result name="super_admin">/WEB-INF/admin/SuperAdmin.jsp</result>
+			<result name="regist_success">/views/user/sucess.jsp</result>
+		</action>
+	</package>
+
+</struts>
