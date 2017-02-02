@@ -14,5 +14,7 @@ public interface UserService {
 	
 	public void find(User user);
 	
+	public List<User> findAll(Class<User> clzz);
+	
 	public List<User> findByName(String username);
 }

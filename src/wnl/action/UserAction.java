@@ -1,8 +1,12 @@
 package wnl.action;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
+
+import net.sf.json.JSONObject;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -16,6 +20,14 @@ import wnl.utils.StringUtils;
 
 public class UserAction extends BaseAction<User> {
 
+	private String jsonString; // Action返回的json数据
+	
+	public void setJsonString(String jsonString) {
+		this.jsonString = jsonString;
+	}
+	public String getJsonString() {
+		return jsonString;
+	}
 	private User user = new User();
 	@Resource(name="userService")
 	private UserService userService;
@@ -49,7 +61,30 @@ public class UserAction extends BaseAction<User> {
 		}
 		return "error";
 	}
-
+	/**
+	 *  查找所有用户
+	 * @return
+	 */
+    public String findAllUsers(){
+    	List<User> users=userService.findAll(User.class);
+    	Map<String, Object> map=new HashMap<String, Object>();
+    	String status="";
+    	int no=0; // 条数
+    	if(users==null){
+    		status="error";
+    	}else{
+    		no=users.size();
+    		status="right";
+    	}
+    	map.put("status", status);
+    	map.put("no", no);
+    	map.put("users", users);
+        // Map对象转成JSON
+    	JSONObject jsonObject=JSONObject.fromObject(map);
+    	jsonString=jsonObject.toString();
+     	System.out.println("get all users ok"+"\n"+jsonString);
+    	return "getAllUser_ok";
+    }
 	public String regist() {
 
 		String phone = servletRequest.getParameter("username");

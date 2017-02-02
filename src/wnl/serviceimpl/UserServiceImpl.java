@@ -55,5 +55,9 @@ public class UserServiceImpl extends HibernateDaoSupport implements UserService 
 	public void setSessionFacotry(SessionFactory sessionFactory){
 		super.setSessionFactory(sessionFactory);
 	}
+	@Override
+	public List<User> findAll(Class<User> clzz) {
+		return dao.findAll(User.class);
+	}
 	
 }

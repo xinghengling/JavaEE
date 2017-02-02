@@ -13,7 +13,7 @@ import wnl.dao.UserDao;
 import wnl.domain.User;
 
 @Transactional
-public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
+public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 
 	@Override
 	public void save(User user) {
@@ -22,30 +22,43 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
 
 	@Override
 	public void delete(User user) {
-		
+
 	}
 
 	@Override
 	public void update(User user) {
-		
+
 	}
 
 	@Override
 	public void find(String username) {
-		
+
 	}
+
 	@Override
 	public List<User> findByName(String username) {
-     		String hql="from User u where u.username=?";
-     		List<User> users=(List<User>) getHibernateTemplate().find(hql, username);
-			return users;
+		String hql = "from User u where u.username=?";
+		List<User> users = (List<User>) getHibernateTemplate().find(hql,
+				username);
+		return users;
 	}
+
 	/**
-	 *  在UserDaoImpl注入SessionFactory
+	 * 在UserDaoImpl注入SessionFactory
+	 * 
 	 * @param sessionFactory
 	 */
 	@Resource
-	public void setSessionFacotry(SessionFactory sessionFactory){
+	public void setSessionFacotry(SessionFactory sessionFactory) {
 		super.setSessionFactory(sessionFactory);
+	}
+    /**
+     *  查找全部
+     */
+	@Override
+	public List<User> findAll(Class<User> clazz) {
+		String hql = "from User u ";
+		List<User> users = (List<User>) getHibernateTemplate().find(hql, null);
+		return users;
 	}
 }
