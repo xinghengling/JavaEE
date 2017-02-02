@@ -14,7 +14,7 @@ import wnl.serviceimpl.UserServiceImpl;
 import wnl.utils.HibernateUtils;
 import wnl.utils.StringUtils;
 
-public class UserAction extends BaseAction {
+public class UserAction extends BaseAction<User> {
 
 	private User user = new User();
 	@Resource(name="userService")
