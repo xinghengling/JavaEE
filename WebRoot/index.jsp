@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'index.jsp' starting page</title>
+<title>大学生在线旅游平台</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -103,24 +103,14 @@
 		<div></div>
 		<!-- -----------------------content end-------------------------------- -->
 		<div style="padding-top: 20px;padding-bottom: 40px;float: left;margin:0 10px 0 10px;">
-			<span style="color: black;font-size: 18px;font-weight: bold;">旅游资源</span><br />
-			<span style="color: pitch;font-size: 14px;">旅游路线</span><br /> <span style="color: pitch;font-size: 14px;">旅游经费</span><br />
-			<span style="color: pitch;font-size: 14px;">旅游圣地</span><br /> <span style="color: pitch;font-size: 14px;">旅游服务</span><br />
+			<a style="color: black;font-size: 18px;font-weight: bold;">资源</a><br />
+			<a style="color: pitch;font-size: 14px;">路线</a><br /> <a style="color: pitch;font-size: 14px;">经费</a><br />
+			<a style="color: pitch;font-size: 14px;">圣地</a><br /> <a style="color: pitch;font-size: 14px;">服务</a><br />
 		</div>
 		<div style="padding-top: 20px;padding-bottom: 40px;float: left;margin:0 10px 0 10px;">
-			<span style="color: black;font-size: 18px;font-weight: bold;">商家服务</span><br />
-			<span style="color: pitch;font-size: 14px;">售后</span><br /> <span style="color: pitch;font-size: 14px;">安全</span><br />
-			<span style="color: pitch;font-size: 14px;">福利</span><br /> <span style="color: pitch;font-size: 14px;">旅程</span><br />
-		</div>
-		<div style="padding-top: 20px;padding-bottom: 40px;float: left;margin:0 10px 0 10px;">
-			<span style="color: black;font-size: 18px;font-weight: bold;">旅游资源</span><br />
-			<span style="color: pitch;font-size: 14px;">旅游路线</span><br /> <span style="color: pitch;font-size: 14px;">旅游经费</span><br />
-			<span style="color: pitch;font-size: 14px;">旅游圣地</span><br /> <span style="color: pitch;font-size: 14px;">旅游服务</span><br />
-		</div>
-		<div style="padding-top: 20px;padding-bottom: 40px;float: left;margin:0 10px 0 10px;">
-			<span style="color: black;font-size: 18px;font-weight: bold;">旅游资源</span><br />
-			<span style="color: pitch;font-size: 14px;">旅游路线</span><br /> <span style="color: pitch;font-size: 14px;">旅游经费</span><br />
-			<span style="color: pitch;font-size: 14px;">旅游圣地</span><br /> <span style="color: pitch;font-size: 14px;">旅游服务</span><br />
+			<a style="color: black;font-size: 18px;font-weight: bold;">商家服务</span><br />
+			<a style="color: pitch;font-size: 14px;">售后</a><br /> <a style="color: pitch;font-size: 14px;">安全</a><br />
+			<a style="color: pitch;font-size: 14px;">福利</a><br /> <a style="color: pitch;font-size: 14px;">旅程</a><br />
 		</div>
 		<div class="clear"></div>
 	</div>

@@ -41,21 +41,40 @@ public class UserAction extends BaseAction<User> {
 	public String login() {
         
 		List<User> users = userService.findByName(user.getUsername());
+		String status="";
+		JSONObject jsonObject=null;
+		Map<String, Object> map=new HashMap<String, Object>();
 		if (users == null || users.size() <= 0) {
+			map.put("status", "none");
+			jsonObject=JSONObject.fromObject(map);
+			jsonString=jsonObject.toString();jsonString=jsonObject.toString();
 			return "non_user"; // 没有对应用户
 		}
 		for(User u:users){
-			if(!user.getPassword().equals(u.getPassword()))
+			if(!user.getPassword().equals(u.getPassword())){
+				map.put("status", "error");
+				jsonObject=JSONObject.fromObject(map);
+				jsonString=jsonObject.toString();
 				return "error";
+			}
 			if("0".equals(u.getUserrank())){
 				// 超级管理员
+				System.out.println("管理员登录中……");
+				map.put("status", "super_admin");
+				jsonObject=JSONObject.fromObject(map);
+				jsonString=jsonObject.toString();
 				return "super_admin";
 			}else if("1".equals(u.getUserrank())){
 				// 管理员
-				return "nomal_admin";
+				map.put("status", "normal_admin");
+				jsonObject=JSONObject.fromObject(map);
+				jsonString=jsonObject.toString();
+				return "normal_admin";
 			}else{
 				// 普通用户
-			
+				map.put("status", "user");
+				jsonObject=JSONObject.fromObject(map);
+				jsonString=jsonObject.toString();
 				return "user";
 			}
 		}

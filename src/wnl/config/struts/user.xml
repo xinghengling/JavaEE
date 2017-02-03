@@ -8,10 +8,11 @@
 	<package name="user" extends="struts-default,json-default" namespace="/">
 		<action name="user_*" class="userAction" method="{1}">
 			<result name="users">/index.jsp</result>
-			<result name="nomal_admin">/WEB-INF/admin/Admin.jsp</result>
+			<result name="normal_admin">/WEB-INF/admin/Admin.jsp</result>
 			<result name="non_user">/views/non_user.jsp</result>
 			<result name="error">/views/user/error.jsp</result>
-			<result name="super_admin">/WEB-INF/admin/SuperAdmin.jsp</result>
+			<!-- <result name="super_admin" >/WEB-INF/admin/SuperAdmin.jsp</result> -->
+			<result name="super_admin"  type="json"><param name="root">jsonString</param></result>
 			<result name="regist_success">/views/user/sucess.jsp</result>
 			<!--  获取所有注册用户的json数据 -->
 			<result type="json" name="getAllUser_ok">
