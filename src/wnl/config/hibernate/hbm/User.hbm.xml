@@ -13,5 +13,6 @@
     <property name="userdescription"/>
     <property name="usernick"/>
     <property name="userrank"/>
+    <property name="registDate" />
   </class>
 </hibernate-mapping>

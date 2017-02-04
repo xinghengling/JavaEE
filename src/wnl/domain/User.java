@@ -10,7 +10,14 @@ public class User {
 	private String useravatar;//用户头像
 	private String userdescription;//描述
 	private Long uid;
+	private String registDate; //注册时间
 	
+	public void setRegistDate(String registDate) {
+		this.registDate = registDate;
+	}
+	public String getRegistDate() {
+		return registDate;
+	}
 	public Long getUid() {
 		return uid;
 	}

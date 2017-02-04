@@ -1,5 +1,6 @@
 package wnl.action;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,15 +8,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import net.sf.json.JSONObject;
-
-import org.hibernate.Session;
-import org.hibernate.query.Query;
-
-import freemarker.template.utility.StringUtil;
 import wnl.domain.User;
 import wnl.service.UserService;
-import wnl.serviceimpl.UserServiceImpl;
-import wnl.utils.HibernateUtils;
 import wnl.utils.StringUtils;
 
 public class UserAction extends BaseAction<User> {
@@ -38,10 +32,10 @@ public class UserAction extends BaseAction<User> {
 	public UserService getUserService() {
 		return userService;
 	}
+	// 登录
 	public String login() {
         
 		List<User> users = userService.findByName(user.getUsername());
-		String status="";
 		JSONObject jsonObject=null;
 		Map<String, Object> map=new HashMap<String, Object>();
 		if (users == null || users.size() <= 0) {
@@ -104,17 +98,16 @@ public class UserAction extends BaseAction<User> {
      	System.out.println("get all users ok"+"\n"+jsonString);
     	return "getAllUser_ok";
     }
+    // 注册
+	@SuppressWarnings("deprecation")
 	public String regist() {
-
 		String phone = servletRequest.getParameter("username");
 		String pwd = servletRequest.getParameter("password");
 		String nick = servletRequest.getParameter("nick");
-		String man = servletRequest.getParameter("man");
-		String woman = servletRequest.getParameter("woman");
-        String sex="男";
-        if(StringUtils.isEmpty(man))
-        	sex="女";
+		String sex = servletRequest.getParameter("sex");
 		String userrank="2";
+		System.out.print("phone:"+phone+" "+"pwd:"+pwd+" "+"nick:"+nick+" "+"sex:"+sex);
+		Map<String, Object> map=new HashMap<String, Object>();
 		if(!StringUtils.isEmpty(phone)&&StringUtils.isNumberic(phone)&&!StringUtils.isEmpty(pwd)){
 			User u=new User();
 			u.setPassword(pwd);
@@ -123,9 +116,17 @@ public class UserAction extends BaseAction<User> {
 			u.setSex(sex);
 			u.setUserrank(userrank);
 			u.setUserdescription("普通用户");
+			u.setRegistDate(new Date(System.currentTimeMillis()).toLocaleString());
 			userService.save(u);
+			map.put("status", "right");
+			map.put("username",u.getUsername());
+			jsonString=JSONObject.fromObject(map).toString();
+			System.out.println("注册完成");
 			return "regist_success";
 		}else{
+			map.put("status", "error");
+			jsonString=JSONObject.fromObject(map).toString();
+			System.out.println("注册出错");
 			return "error";
 		}
 		
