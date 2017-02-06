@@ -12,10 +12,12 @@ public interface UserDao {
 	
 	public void update(User user);
 	
+	public void updateByUserName(String username);
+	
 	public void find(String username);
 	
 	public List<User> findAll(Class<User> clazz);
 	
-	public List<User> findByName(String username);
+	public List<User> findByUserName(String username);
 	
 }

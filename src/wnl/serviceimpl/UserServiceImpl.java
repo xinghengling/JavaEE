@@ -44,8 +44,8 @@ public class UserServiceImpl extends HibernateDaoSupport implements UserService 
 	}
 
 	@Override
-	public List<User> findByName(String username) {
-			return dao.findByName(username);
+	public List<User> findByUserName(String username) {
+			return dao.findByUserName(username);
 	}
 	/**
 	 *  在UserServiceImpl注入SessionFactory

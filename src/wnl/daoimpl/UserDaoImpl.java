@@ -27,7 +27,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 
 	@Override
 	public void update(User user) {
-
+          this.getHibernateTemplate().update(user);
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 	}
 
 	@Override
-	public List<User> findByName(String username) {
+	public List<User> findByUserName(String username) {
 		String hql = "from User u where u.username=?";
 		List<User> users = (List<User>) getHibernateTemplate().find(hql,
 				username);
@@ -60,5 +60,10 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 		String hql = "from User u ";
 		List<User> users = (List<User>) getHibernateTemplate().find(hql, null);
 		return users;
+	}
+
+	@Override
+	public void updateByUserName(String username) {
+       String hql="from User u where u.username=?";
 	}
 }

@@ -1,7 +1,9 @@
 package wnl.domain;
 
 public class User {
-
+/**
+ * 用户描述是用户等级的文字表述 0-超级管理员 1-一般管理员 2-普通用户
+ */
 	private String username;// 注册名
 	private String password;// 密码
 	private String sex;// 性别

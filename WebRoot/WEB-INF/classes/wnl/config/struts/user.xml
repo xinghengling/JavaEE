@@ -23,6 +23,9 @@
 			<result type="json" name="getAllUser_ok">
 				<param name="root">jsonString</param>
 			</result>
+			<result name="update_ok" type="json">
+			 <param name="root">jsonString</param>
+			</result>
 		</action>
 	</package>
 
